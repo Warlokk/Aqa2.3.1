@@ -1,13 +1,16 @@
 package ru.netology.test;
 
-import com.codeborne.selenide.logevents.SelenideLogger;
-import io.qameta.allure.selenide.AllureSelenide;
+
 import org.junit.jupiter.api.*;
+
 import ru.netology.data.DataGenerator;
 import ru.netology.data.DataGenerator.*;
 import ru.netology.data.DeliveryInfo;
 
+
 import java.time.*;
+
+
 
 import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.*;
@@ -18,10 +21,6 @@ public class DeliveryTest {
     private DeliveryRequest request = new DeliveryRequest();
     private DeliveryInfo client = request.clientInfo("ru");
 
-    @BeforeAll
-    static void setUpAll() {
-        SelenideLogger.addListener("allure", new AllureSelenide());
-    }
 
     @Test
     void shouldRescheduleAndSend() {
@@ -50,11 +49,6 @@ public class DeliveryTest {
         $(".notification__content>[type=button]").click();
         $(".notification__content").shouldBe(visible, Duration.ofSeconds(15)).shouldHave(exactText("Встреча успешно запланирована на " + newDate));
 
-    }
-
-    @AfterAll
-    static void tearDownAll() {
-        SelenideLogger.removeListener("allure");
     }
 
 
