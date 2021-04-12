@@ -25,4 +25,3 @@ test {
 } 
 ```
 
-[![Build status](https://ci.appveyor.com/api/projects/status/29rh0nwwp5029yki?svg=true)](https://ci.appveyor.com/project/Warlokk/aqa4-1-2)
